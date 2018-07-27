@@ -1,5 +1,5 @@
 var $breadcrumb = $(".breadcrumb");
-var $main_content = $(".main-content");
+var $main_content = $("#main-content");
 var $navigation = $("#navigation");
 
 var redisMemoryInfoInterval;
@@ -54,15 +54,19 @@ $(window).on("load", function () {
             var urlstr = "";
             try {
                 if (!o[i]["url"]) {
-                    urlstr = "<div><span><i class='" + o[i]["icon"] + "'></i>&nbsp;&nbsp;" + o[i]["text"] + "</span><ul>";
+                  urlstr = '<li class=""><a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-desktop"></i><span class="menu-text">' + o[i]["text"] + '</span><b class="arrow fa fa-angle-down"></b></a>';
+                    // urlstr = "<div><span><i class='" + o[i]["icon"] + "'></i>&nbsp;&nbsp;" + o[i]["text"] + "</span><ul>";
                 } else {
-                    urlstr = "<div><span name=" + o[i]["url"] + " onclick='loadMain(this);'><i class='" + o[i]["icon"] + "'></i>&nbsp;&nbsp;" + o[i]["text"] + "</span><ul>";
+                  urlstr = '<li class=""><a href="#" name="' + o[i]["url"] + '" onclick="loadMain(this);"><span class="menu-text">' + o[i]["text"] + '</span><b class="arrow"></b></a></li>';
+                  // urlstr = "<div><span name=" + o[i]["url"] + " onclick='loadMain(this);'><i class='" + o[i]["icon"] + "'></i>&nbsp;&nbsp;" + o[i]["text"] + "</span><ul>";
                 }
                 str += urlstr;
                 if (o[i]["children"].length !== 0) {
+                    str += '<ul class="submenu">';
                     forTree(o[i]["children"]);
+                    str +='</ul></li>'
                 }
-                str += "</ul></div>";
+                str += "";
             } catch (e) {
                 console.log(e);
             }

@@ -14,12 +14,12 @@ $(function () {
         var $value = $menuAddForm.find("input[name='type']:checked").val();
         if ($value === "0") {
             $menuName.parent().prev().text("菜单名称：");
-            $url.val("").parents(".row").show();
-            $icon.val("").parents(".row").show();
+            $url.val("").parents(".form-group").show();
+            $icon.val("").parents(".form-group").show();
         } else {
             $menuName.parent().prev().text("按钮名称：");
-            $url.parents(".row").hide();
-            $icon.parents(".row").hide();
+            $url.parents(".form-group").hide();
+            $icon.parents(".form-group").hide();
         }
     });
 

@@ -44,7 +44,7 @@ public class LoginController extends BaseController {
     @PostMapping("/login")
     @ResponseBody
     public ResponseBo login(String username, String password, String code, Boolean rememberMe) {
-        if (!StringUtils.isNotBlank(code)) {
+      /*  if (!StringUtils.isNotBlank(code)) {
             return ResponseBo.warn("验证码不能为空！");
         }
         Session session = super.getSession();
@@ -52,7 +52,7 @@ public class LoginController extends BaseController {
         session.removeAttribute("_code");
         if (!code.toLowerCase().equals(sessionCode)) {
             return ResponseBo.warn("验证码错误！");
-        }
+        }*/
         // 密码 MD5 加密
         password = MD5Utils.encrypt(username.toLowerCase(), password);
         UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);

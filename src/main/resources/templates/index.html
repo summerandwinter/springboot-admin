@@ -1,46 +1,91 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="edge" />
-    <title>BMSOFT权限管理系统</title>
-    <link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.ico}" />
-    <!-- Vendor styles -->
-    <link rel="stylesheet" data-th-href="@{css/material-design-iconic-font/css/material-design-iconic-font.min.css}">
-    <link rel="stylesheet" data-th-href="@{css/jquery.scrollbar/jquery.scrollbar.css}">
-    <!-- App styles -->
-    <link rel="stylesheet" data-th-href="@{css/app.css}">
-    <!-- Bootstrap Table -->
-    <link rel="stylesheet" data-th-href="@{css/bootstrap-table/bootstrap-table.css}">
-    <!-- animate -->
-    <link rel="stylesheet" data-th-href="@{css/animate/animate.min.css}">
-    <!-- multiple-select -->
-    <link rel="stylesheet" data-th-href="@{css/multiple-select/multiple-select.css}">
-    <!-- jsTree -->
-    <link rel="stylesheet" data-th-href="@{css/jsTree/style.min.css}">
-    <!-- treeTable -->
-    <link rel="stylesheet" data-th-href="@{css/jqTreeGrid/jquery.treegrid.css}">
-    <!-- sweetalert2 -->
-    <link rel="stylesheet" data-th-href="@{css/sweetalert2/sweetalert2.css}">
-    <!-- datarangepicker -->
-    <link rel="stylesheet" data-th-href="@{css/daterangepicker/daterangepicker.css}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta charset="utf-8"/>
+  <title>Dashboard - Ace Admin</title>
+
+  <meta name="description" content="overview &amp; stats"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+
+  <!-- bootstrap & fontawesome -->
+  <link rel="stylesheet" data-th-href="@{assets/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" data-th-href="@{assets/font-awesome/4.5.0/css/font-awesome.min.css}"/>
+  <link rel="stylesheet" data-th-href="@{css/material-design-iconic-font/css/material-design-iconic-font.min.css}">
+  <!-- Bootstrap Table -->
+  <link rel="stylesheet" data-th-href="@{css/bootstrap-table/bootstrap-table.css}">
+  <!-- App styles -->
+  <link rel="stylesheet" data-th-href="@{css/app.css}">
+  <!-- animate -->
+  <link rel="stylesheet" data-th-href="@{css/animate/animate.min.css}">
+  <!-- multiple-select -->
+  <link rel="stylesheet" data-th-href="@{css/multiple-select/multiple-select.css}">
+  <!-- jsTree -->
+  <link rel="stylesheet" data-th-href="@{css/jsTree/style.min.css}">
+  <!-- treeTable -->
+  <link rel="stylesheet" data-th-href="@{css/jqTreeGrid/jquery.treegrid.css}">
+  <!-- datarangepicker -->
+  <link rel="stylesheet" data-th-href="@{css/daterangepicker/daterangepicker.css}">
+  <!-- page specific plugin styles -->
+
+  <!-- text fonts -->
+  <link rel="stylesheet" data-th-href="@{assets/css/fonts.googleapis.com.css}"/>
+
+  <!-- ace styles -->
+  <link rel="stylesheet" data-th-href="@{assets/css/ace.min.css}" class="ace-main-stylesheet"
+        id="main-ace-style"/>
+
+  <!--[if lte IE 9]>
+  <link rel="stylesheet" data-th-href="@{assets/css/ace-part2.min.css}"
+        class="ace-main-stylesheet"/>
+  <![endif]-->
+  <link rel="stylesheet" data-th-href="@{assets/css/ace-skins.min.css}"/>
+  <link rel="stylesheet" data-th-href="@{assets/css/ace-rtl.min.css}"/>
+
+  <!--[if lte IE 9]>
+  <link rel="stylesheet" data-th-href="@{assets/css/ace-ie.min.css}"/>
+  <![endif]-->
+
+  <!-- inline styles related to this page -->
+
 </head>
-<body data-ma-theme="green">
-    <div data-th-include="common/common"></div>
-    <main class="main">
-        <div data-th-include="common/header"></div>
-        <div data-th-include="common/aside"></div>
-        <div data-th-include="common/main"></div>
-    </main>
-    <div data-th-include="system/user/updatePassword"></div>
-</body>
+<body class="no-skin">
+<div data-th-include="common/common"></div>
+<div class="main-container ace-save-state" id="main-container">
+  <div id="navbar" class="navbar navbar-default ace-save-state" data-th-include="common/header"></div>
+  <div id="sidebar" class="sidebar responsive  ace-save-state" data-th-include="common/aside"></div>
+  <div class="main-content" data-th-include="common/main"></div>
+  <div class="footer" data-th-include="common/footer"></div>
+  <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+  </a>
+</div><!-- /.main-container -->
+<script type="text/javascript">
+  try {
+    ace.settings.loadState('main-container')
+  } catch (e) {
+  }
+</script>
+<!-- basic scripts -->
+<script type="text/javascript">
+  if ('ontouchstart'
+      in document.documentElement) {
+    document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"
+        + "<" + "/script>");
+  }
+</script>
+
+
+<!-- inline scripts related to this page -->
+
 <script data-th-inline="javascript">
-	var ctx = [[@{/}]];
-	var userName = [[${user.username}]];
-	var theme = [[${user.theme}]];
-	var avatar = ctx + "img/avatar/" + [[${user.avatar}]];
+  var ctx = [[@{/}]];
+    var userName = [[${user.username}]];
+    var theme = [[${user.theme}]];
+    var avatar = ctx + "img/avatar/" + [[${user.avatar}]];
+
+
 </script>
 <script data-th-src="@{js/app/index.js}"></script>
+</body>
 </html>

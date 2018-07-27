@@ -169,7 +169,7 @@
                     //thead.css("width", tbody.children(":first").css("width"));
                     // 行点击选中事件
                     target.find("tbody").find("tr").click(function(event){
-                    	if(event.target.className.indexOf("zmdi") != -1){
+                    	if(event.target.className.indexOf("fa") != -1){
                     		return;
                     	}
                         if(hasSelectItem){
@@ -288,8 +288,8 @@
         columns : [],
         toolbar: null,//顶部工具条
         height: 0,
-        expanderExpandedClass : 'zmdi zmdi-chevron-down zmdi-hc-fw',// 展开的按钮的图标
-        expanderCollapsedClass : 'zmdi zmdi-chevron-right zmdi-hc-fw'// 缩起的按钮的图标
+        expanderExpandedClass : 'fa fa-angle-down fa-fw',// 展开的按钮的图标
+        expanderCollapsedClass : 'fa fa-angle-up fa-fw'// 缩起的按钮的图标
 
     };
 })(jQuery);

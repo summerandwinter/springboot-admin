@@ -1,3 +1,15 @@
+String.prototype.trim = function ()
+{
+  return this.replace(/(^\s*)|(\s*$)/g, "");
+}
+String.prototype.ltrim = function ()
+{
+  return this.replace(/(^\s*)/g, "");
+}
+String.prototype.rtrim = function ()
+{
+  return this.replace(/(\s*$)/g, "");
+}
 var $MB = (function () {
     var bootstrapTable_default = {
         method: 'get',
@@ -86,7 +98,7 @@ var $MB = (function () {
             },
             spacing: 10,
             z_index: 3001,
-            delay: 2500,
+            delay: 2500000000,
             timer: 1000,
             url_target: '_blank',
             mouse_over: false,
